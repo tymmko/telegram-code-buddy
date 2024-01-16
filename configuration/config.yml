@@ -1,0 +1,143 @@
+
+module: "A module of CodeBuddy for sending requests and receiving responses from ChatGPT AI."
+setup: 
+  - ChatGPT_API: "INSERT_YOR_API_KEY"
+  - TelegramBOT_API: "INSERT_YOR_API_KEY"
+  - ChatGPT_model: "gpt-3.5-turbo"
+  - ChatGPT_temperature: 0.9
+  - ChatGPT_top_p: 1
+  - ChatGPT_frequency_penalty: 0.5
+  - ChatGPT_presence_penalty: 0.5
+prompts:
+  ChatGPT_setup_prompt:
+    content_giver: |
+      You are a helpful assistant teacher. Stay brief and use some emojis. Create original tasks, be formal and unique.
+    content_receiver: |
+      You are a helpful assistant that checks the code of the students. Be brief, formal, patient, be very strict and wise, straightforward, and tell the truth. Use some emojis.
+  PROMPT_easy_task: |
+      Generate a python-code easy task for student to practice python knowledge
+      you can use one (or not one) of the following topics:
+      Syntax and Basic Constructs
+      Variables and Data Types
+      Basic Operators
+      String Manipulation
+      Control Flow
+      Basic Data Structures
+      Functions
+      Your output should contain the following:
+      Name of the task
+      difficulty of the task: Easy Peasy
+      Detailed (up to 100 words) description
+      5 test cases:
+      like this
+      input #1: 
+      output #1:
+      include some emojis, but remain formal language.
+      you should be able to write the task under 400 tokens
+  PROMPT_medium_task: |
+      Generate a python-code medium task for student to practice python knowledge
+
+      you can use one (or not one) of the following topics:
+      Advanced Data Structures
+      Error and Exception Handling
+      Modules and Packages
+      Object-Oriented Programming (OOP)
+      List Comprehensionsing.
+      Basic Algorithms 
+      Basic Decorators
+      and easiear topics of course.
+      Your output should contain the following:
+
+      Name of the task
+      difficulty of the task: Medium Madness
+      Detailed (up to 300 words) description
+      5 test cases:
+      like this
+      input #1: 
+
+      output #1:
+
+      include some emojis, but remain formal language.
+      you should be able to write the task under 600 tokens
+  PROMPT_difficult_task: |
+      Generate a python-code difficult task for student to practice python knowledge
+
+      you can use one (or not one) of the following topics:
+      Advanced OOP Concepts
+      Functional Programming
+      Multithreading and Multiprocessing
+      Web Development
+      Data Science
+      Advanced Algorithms and Data Structures
+      and easiear topics of course.
+      Your output should contain the following:
+
+      Name of the task
+      difficulty of the task: Hardcore Hacker
+      Detailed (up to 600 words) description
+      5 test cases:
+      like this
+      input #1: 
+
+      output #1:
+
+      include some emojis, but remain formal language.
+      you should be able to write the task under 1200 tokens
+  start_message: |
+      🚀 *Welcome to CodeBuddy!* 🤖✨ 
+      Your personal coding dojo awaits! Ready to get your code-fu stronger? 💪
+      *Here's what I've got for you:*
+
+      *Daily Challenges 🧠:* Pick your poison - Easy 🍃, Medium 🌟, or Hard 🔥.
+
+      *Track Your Progress 📈:* 
+
+      *Get Feedback 💬:* Submit and I'll check your code faster than you can say "debug"!
+
+      Type /task to begin or /help if you're feeling lost in the code jungle. 🌲👀
+
+      *Let's turn those codes into masterpieces!* 🎨💻
+  task_selection_message: |
+      *Task Selection Menu* 🧐📚
+
+      Ready to dive into some coding challenges? Here's how you can pick your next task:
+
+      1. *Easy Peasy*: For those who want a smooth ride 🍃
+      2. *Medium Madness*: For the brave souls seeking a challenge 🌟
+      3. *Hardcore Hacker*: For the code warriors ready to face the fire 🔥
+
+      Choose your difficulty!
+      Ready, set, code! 🚀💻
+  help_message: |
+      🆘 *CodeBuddy Help Guide* 🤖📘
+
+      Welcome to CodeBuddy, your coding taskmaster! Here's how to navigate through the coding jungle with me:
+
+      - 🚀 *Getting Started*: Type `/start` to kick off your coding journey. I'll greet you with what I can do!
+
+      - 🧠 *Selecting a Task*: Type `/task` to choose a coding challenge. You can pick from Easy 🍃, Medium 🌟, or Hard 🔥 levels.
+
+      - ✅ *Submitting Your Solution*: Once you've solved a task, click the button and submit your solution. I'll check it faster than you can say "debug"!
+
+      *Let's make coding fun and educational!* 🎓💻
+  PROMPT_give_code_feedback: |
+    You will receive a code and the task definition from student you will need to check the code.
+    Firstly you need to make sure that the code or something from student given to you is really the task and the definition.
+    Be truthful and wise, do not give the possibility to student to foll with you 
+    If it is not, you need to say: "The code is wrong, try again."
+    If there is even a small mistake, which makes the code perform wrong! Do not give the right answer where is mistake, just say that there is a mistake which mekes the code perform wrong.
+    the user should be able to solve the problem without your help!
+    If it is the code you need to create more test cases and check the code. Also you need to check whether the code is correct for this task.
+    If something goes wrong and code doesn't work properly you need to give small hints, but do not give the answer for the task!!!! 
+    Your output should include: 
+
+    Code raiting: .../100 #You need to rate a code according to its correctness, performance and code style
+
+    Overall code comment:  # You need to tell something good about the code and something bad. Give some feedback and advice
+
+    Be truthful!!! If the code is bad - say it straight away. It is okay to get bad feedback!
+
+tokens:
+  - easy: 400
+  - medium: 600
+  - hard: 2500
