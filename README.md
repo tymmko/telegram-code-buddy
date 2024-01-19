@@ -7,6 +7,7 @@
 
 <p align="center">
   CodeBuddy, is designed to challenge users with coding tasks in telegram bot. 
+  
 </p>
 
 
@@ -26,6 +27,8 @@
 [![](https://img.shields.io/badge/telegram-blue)]()
 
 Code Buddy is a Telegram bot that integrates OpenAI's powerful API to provide users with engaging and challenging coding tasks. This bot is an excellent tool for developers looking to hone their coding skills through interactive tasks and AI-driven feedback.
+
+[You can try the following bot here!](https://www.telegram.me/cobuddy_bot)
 
 **Available in telegram, just insert your API's.**
 
@@ -49,7 +52,8 @@ Code Buddy offers a range of functionalities, including:
 
 Feel free to send any feedback or ideas
 
-[![Contacts](https://img.shields.io/badge/telegram-blue)](www.telegram.com/ttimfey)
+[Contact me](https://www.telegram.me/ttimfey)
+
 ## Build Process
 
 
